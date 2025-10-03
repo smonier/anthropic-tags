@@ -6,7 +6,7 @@
 # Node
 dist
 node_modules
-
+src/main/resources/javascript/apps
 #Yarn
 .yarn/*
 !.yarn/cache
