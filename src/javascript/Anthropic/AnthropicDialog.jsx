@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core';
-import {Button, Dropdown, Typography, Warning} from '@jahia/moonstone';
+import {Button, Dropdown, Typography, Warning, Separator} from '@jahia/moonstone';
 import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
 import styles from './AnthropicDialog.scss';
@@ -118,6 +118,7 @@ export const AnthropicDialog = ({
                     </Typography>
                 </div>
             </DialogTitle>
+            <Separator className={styles.separator}/>
             <DialogContent className={styles.dialogContent} classes={{root: styles.dialogContent_overflowYVisible}}>
                 <div className={styles.loaderOverlayWrapper}>
                     <LoaderOverlay status={loadingQuery}/>
@@ -141,6 +142,7 @@ export const AnthropicDialog = ({
                     onChange={handleOnChange}
                 />
             </DialogContent>
+            <Separator className={styles.separator}/>
             <DialogActions>
                 <Typography className={styles.warningText}>
                     <Warning
