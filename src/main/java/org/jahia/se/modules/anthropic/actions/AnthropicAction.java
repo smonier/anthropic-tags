@@ -1,7 +1,6 @@
 package org.jahia.se.modules.anthropic.actions;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import javax.jcr.RepositoryException;
 import javax.servlet.http.HttpServletRequest;
@@ -9,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.jahia.bin.Action;
 import org.jahia.bin.ActionResult;
 import org.jahia.se.modules.anthropic.service.AnthropicService;
-import org.jahia.services.content.JCRNodeIteratorWrapper;
 import org.jahia.services.content.JCRNodeWrapper;
 import org.jahia.services.content.JCRSessionWrapper;
 import org.jahia.services.render.RenderContext;
@@ -68,12 +66,6 @@ public class AnthropicAction extends Action {
 
         LOGGER.info(resp.toString());
         return new ActionResult(resultCode, null, resp);
-    }
-
-    public ActionResult doPost(HttpServletRequest request, RenderContext renderContext, Resource resource,
-                               JCRSessionWrapper session, Map<String, List<String>> parameters,
-                               URLResolver urlResolver) throws Exception {
-        return doExecute(request, renderContext, resource, session, parameters, urlResolver);
     }
 
     private JSONObject executePrompt(JCRNodeWrapper node, Resource resource, String tagLanguage) throws RepositoryException, JSONException {

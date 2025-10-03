@@ -4,28 +4,18 @@ import org.jahia.services.tags.TaggingService;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.nio.charset.StandardCharsets;
-import java.time.Duration;
 import java.util.*;
 import javax.jcr.RepositoryException;
 
 import org.jahia.api.Constants;
-import org.jahia.se.modules.anthropic.service.AnthropicService;
 import org.jahia.services.content.JCRNodeWrapper;
 import org.jahia.services.content.JCRPropertyWrapperImpl;
 import org.jahia.services.content.JCRSessionWrapper;
 import org.jahia.services.content.JCRTemplate;
 import org.jahia.services.content.LazyPropertyIterator;
-import org.jahia.services.content.nodetypes.ExtendedPropertyDefinition;
 import org.jahia.utils.LanguageCodeConverters;
-import org.jahia.services.tags.TaggingService;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.osgi.service.cm.ConfigurationException;
 import org.osgi.service.cm.ManagedService;
 import org.osgi.service.component.annotations.Component;
@@ -53,15 +43,7 @@ public class AnthropicServiceImpl implements AnthropicService, ManagedService {
     public static String max_tokens;
     public static String prompt;
 
-    private TaggingService taggingService;
-
-
     private Map<String, String> targetLanguages;
-
-    @Reference(service = TaggingService.class, cardinality = ReferenceCardinality.MANDATORY)
-    public void setTaggingService(TaggingService taggingService) {
-        this.taggingService = taggingService;
-    }
 
     @Override
     public List<String> generateAutoTags(String path, String language, String tagLanguage) {
@@ -233,9 +215,6 @@ public class AnthropicServiceImpl implements AnthropicService, ManagedService {
                 }
             }
             LOGGER.info("Extracted tags: {}", tags);
-            /*if (!tags.isEmpty()) {
-                taggingService.tag(node, tags);
-            }*/
             return tags;
 
         } catch (Exception e) {
