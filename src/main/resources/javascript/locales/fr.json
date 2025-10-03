@@ -1,0 +1,16 @@
+{
+  "label" : {
+    "title": "Auto Tagging",
+    "dialog": {
+      "dialogTitle": "Auto‑tagging avec Anthropic Claude AI",
+      "bottomText": "En cliquant sur « APPLIQUER », vous remplacerez tous les tags par ceux générés dans la nouvelle langue choisie.",
+      "btnApply": "Appliquer",
+      "btnCancel": "Annuler",
+      "currentLanguage": "Vers la langue actuelle :",
+      "defaultValue": "Non sélectionné",
+      "dialogSubTitle": "Utiliser Anthropic Claude AI pour générer automatiquement des tags pour l’élément de contenu actuel en fonction de son contenu.",
+      "listLabel": "Selectionner la langue des tags",
+      "name": "Auto‑tagging"
+    }
+  }
+}
