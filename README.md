@@ -8,6 +8,9 @@ This module is a Jahia UI extension for the Content Editor. It allows automatic 
 - **AI-Powered Tagging**: Extracts text from the selected JCR node and sends it to Anthropic Claude to receive relevant semantic tags.
 - **Automatic Tag Field Update**: Fills the tag field of the content with the generated tags.
 - **Configurable**: API key, model, and other parameters are managed via OSGi configuration.
+- **User Prompt Customization**: Customize the prompt sent to the AI model for tag generation.
+- **Language Support**: Option to select the source language for better context understanding.
+- **Response**: Need to return and store an array of tags in a string[] format.
 
 ## Installation
 
@@ -35,7 +38,7 @@ This module is a Jahia UI extension for the Content Editor. It allows automatic 
     ANTHROPIC_MAX_TOKENS=1024
 
     # Optional: User prompt template
-    ANTHROPIC_USER_PROMPT=Generate a list of relevant semantic tags for the following text: {text}
+    ANTHROPIC_USER_PROMPT=Generate an array of 5 tags in a string[] format from the following text
 
     # Optional: API base URL
     ANTHROPIC_API_BASE_URL=https://api.anthropic.com
